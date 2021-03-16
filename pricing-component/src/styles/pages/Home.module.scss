@@ -1,0 +1,50 @@
+.container {
+    height: 100vh;
+    overflow-x: hidden;
+    background: var(--very-pale-blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+
+    & > header, main {
+        position: relative;
+        z-index: 2;
+    }
+
+    & > header {
+        text-align: center;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(85%, -25%);
+            z-index: -1;
+        }
+        
+        h1 {
+            color: var(--dark-desaturated-blue);
+            margin-bottom: 0.9rem;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 15px;
+            color: var(--grayish-blue);
+        }
+    }
+}
+
+.bgPattern {
+    height: 50vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+
