@@ -1,20 +1,61 @@
 import styles from "../styles/components/PricingComponent.module.scss";
+import React from "react";
 
 export default function PricingComponent() {
+    const [pageviews, setPageviews] = React.useState("100K");
+    const [multiplier, setMultiplier] = React.useState(1);
+    const [price, setPrice] = React.useState(multiplier * 16);
+
+    function handleInputRange(event) {
+        switch (event.target.value) {
+            case "0":
+                setPageviews("10K");
+                setPrice(multiplier * 8);
+                break;
+            case "25":
+                setPageviews("50K");
+                setPrice(multiplier * 12);
+                break;
+            case "50":
+                setPageviews("100K");
+                setPrice(multiplier * 16);
+                break;
+            case "75":
+                setPageviews("500K");
+                setPrice(multiplier * 24);
+                break;
+            case "100":
+                setPageviews("1M");
+                setPrice(multiplier * 36);
+                break;
+        }
+    }
+
+    function handleCheckbox(event) {
+        event.target.checked ? setMultiplier(0.75) : setMultiplier(1);
+    }
+
     return (
         <div className={styles.cardContainer}>
             <header>
-                <p>100K PAGEVIEWS</p>
+                <p>{pageviews} PAGEVIEWS</p>
                 <div>
-                    <h1>$16.00</h1>
+                    <h1>${price}.00</h1>
                     <span>/ month</span>
                 </div>
             </header>
 
-            <input type="range" />
+            <input
+                step="25"
+                type="range"
+                defaultValue="50"
+                min="0"
+                max="100"
+                onChange={handleInputRange}
+            />
             <div className={styles.paymentType}>
                 <p>Monthly Billing</p>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={handleCheckbox} />
                 <p>
                     Yearly Billing <span>25% discount</span>
                 </p>
