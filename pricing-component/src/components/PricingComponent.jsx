@@ -5,28 +5,24 @@ export default function PricingComponent() {
     const [pageviews, setPageviews] = React.useState("100K");
     const [multiplier, setMultiplier] = React.useState(1);
     const [price, setPrice] = React.useState(multiplier * 16);
+    const [inputRangeValue, setInputRangeValue] = React.useState(50);
 
     function handleInputRange(event) {
         switch (event.target.value) {
             case "0":
-                setPageviews("10K");
-                setPrice(multiplier * 8);
+                setInputRangeValue(0);
                 break;
             case "25":
-                setPageviews("50K");
-                setPrice(multiplier * 12);
+                setInputRangeValue(25);
                 break;
             case "50":
-                setPageviews("100K");
-                setPrice(multiplier * 16);
+                setInputRangeValue(50);
                 break;
             case "75":
-                setPageviews("500K");
-                setPrice(multiplier * 24);
+                setInputRangeValue(75);
                 break;
             case "100":
-                setPageviews("1M");
-                setPrice(multiplier * 36);
+                setInputRangeValue(100);
                 break;
         }
     }
@@ -34,6 +30,32 @@ export default function PricingComponent() {
     function handleCheckbox(event) {
         event.target.checked ? setMultiplier(0.75) : setMultiplier(1);
     }
+
+    function updateValues() {
+        switch (inputRangeValue) {
+            case 0:
+                setPageviews("10K");
+                setPrice(multiplier * 8);
+                break;
+            case 25:
+                setPageviews("50K");
+                setPrice(multiplier * 12);
+                break;
+            case 50:
+                setPageviews("100K");
+                setPrice(multiplier * 16);
+                break;
+            case 75:
+                setPageviews("500K");
+                setPrice(multiplier * 24);
+                break;
+            case 100:
+                setPageviews("1M");
+                setPrice(multiplier * 36);
+        }
+    }
+
+    React.useEffect(updateValues, [multiplier, inputRangeValue]);
 
     return (
         <div className={styles.cardContainer}>
