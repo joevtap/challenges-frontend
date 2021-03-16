@@ -12,14 +12,14 @@ export default function PricingComponent() {
             </header>
 
             <input type="range" />
-            <div>
+            <div className={styles.paymentType}>
                 <p>Monthly Billing</p>
                 <input type="checkbox" />
                 <p>
                     Yearly Billing <span>25% discount</span>
                 </p>
             </div>
-            <div>
+            <footer>
                 <div>
                     <p>
                         <img src="./img/icon-check.svg" alt="check" />
@@ -35,7 +35,7 @@ export default function PricingComponent() {
                     </p>
                 </div>
                 <a href="#">Start my trial</a>
-            </div>
+            </footer>
         </div>
     );
 }

@@ -1,10 +1,8 @@
 .cardContainer {
-    width: 500px;
-    height: 350px;
     background: var(--white);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 10px;
-    padding: 1.5rem 2.5rem;
+    padding: 1.5rem 0;
 
     display: flex;
     flex-direction: column;
@@ -14,7 +12,8 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        padding: 0 2.5rem;
 
         div {
             display: flex;
@@ -22,6 +21,7 @@
 
             h1 {
                 color: var(--dark-desaturated-blue);
+                font-size: 2.5rem;
             }
 
             span {
@@ -36,6 +36,79 @@
             font-weight: 800;
             letter-spacing: 1px;
             font-size: 15px;
+            margin-right: 120px;
+        }
+    }
+
+    input[type="range"] {
+        margin: 0 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .paymentType {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2.5rem;
+    padding-bottom: 2rem;
+    color: var(--grayish-blue);
+    font-weight: 600;
+
+    input[type="checkbox"] {
+        margin: 0 10px;
+    }
+    
+    p {
+        font-size: 14px;
+        span {
+            position: absolute;
+            background: var(--light-grayish-red);
+            font-size: 11px;
+            padding: 3px 5px;
+            border-radius: 20px;
+            color: var(--light-red);
+            font-weight: 800;
+            margin-left: 10px;
+        }
+    }
+} 
+
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        border-top: 1px solid var(--light-grayish-red);
+        padding: 0 2.5rem;
+        padding-top: 1.5rem;
+
+        color: var(--grayish-blue);
+        font-weight: 600;
+
+        p {
+            font-size: 14px;
+            img {
+                margin-right: 1rem;
+            }
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--pale-blue);
+            padding: .7rem 2.5rem;
+            background: var(--dark-desaturated-blue);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 800;
+            transition: filter 300ms;
+
+            &:hover {
+                filter: brightness(1.2);
+            }
         }
     }
 }
