@@ -66,18 +66,22 @@ export default function PricingComponent() {
                     <span>/ month</span>
                 </div>
             </header>
-
-            <input
-                step="25"
-                type="range"
-                defaultValue="50"
-                min="0"
-                max="100"
-                onChange={handleInputRange}
-            />
+            <div className={styles.sliderContainer}>
+                <input
+                    step="25"
+                    type="range"
+                    defaultValue="50"
+                    min="0"
+                    max="100"
+                    onChange={handleInputRange}
+                />
+            </div>
             <div className={styles.paymentType}>
                 <p>Monthly Billing</p>
-                <input type="checkbox" onChange={handleCheckbox} />
+                <label className={styles.switch}>
+                    <input type="checkbox" onChange={handleCheckbox} />
+                    <span className={styles.slider}></span>
+                </label>
                 <p>
                     Yearly Billing <span>25% discount</span>
                 </p>
